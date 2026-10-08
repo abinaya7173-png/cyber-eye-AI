@@ -139,7 +139,19 @@ Keep explanation and recommendation under 300 characters each.
 @app.get("/")
 def home():
     return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+@app.get("/style.css")
+def style():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "style.css"),
+        media_type="text/css"
+    )
 
+@app.get("/app.js")
+def javascript():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "app.js"),
+        media_type="application/javascript"
+    )
 @app.get("/health")
 def health():
     return {"status": "online", "service": "cyber-eye-ai"}
